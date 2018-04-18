@@ -1,4 +1,3 @@
-[![npm version](https://badge.fury.io/js/react-native-modal-picker.svg)](https://badge.fury.io/js/react-native-modal-picker)
 
 # react-native-modal-picker
 A cross-platform (iOS / Android), selector/picker component for React Native that is highly customizable and supports sections.
@@ -38,21 +37,21 @@ class SampleApp extends Component {
     render() {
         let index = 0;
         const data = [
-            { key: index++, section: true, label: 'Fruits' },
-            { key: index++, label: 'Red Apples' },
-            { key: index++, label: 'Cherries' },
-            { key: index++, label: 'Cranberries' },
-            { key: index++, label: 'Pink Grapefruit' },
-            { key: index++, label: 'Raspberries' },
-            { key: index++, section: true, label: 'Vegetables' },
-            { key: index++, label: 'Beets' },
-            { key: index++, label: 'Red Peppers' },
-            { key: index++, label: 'Radishes' },
-            { key: index++, label: 'Radicchio' },
-            { key: index++, label: 'Red Onions' },
-            { key: index++, label: 'Red Potatoes' },
-            { key: index++, label: 'Rhubarb' },
-            { key: index++, label: 'Tomatoes' }
+            { value: index++, section: true, label: 'Fruits' },
+            { value: index++, label: 'Red Apples' },
+            { value: index++, label: 'Cherries' },
+            { value: index++, label: 'Cranberries' },
+            { value: index++, label: 'Pink Grapefruit' },
+            { value: index++, label: 'Raspberries' },
+            { value: index++, section: true, label: 'Vegetables' },
+            { value: index++, label: 'Beets' },
+            { value: index++, label: 'Red Peppers' },
+            { value: index++, label: 'Radishes' },
+            { value: index++, label: 'Radicchio' },
+            { value: index++, label: 'Red Onions' },
+            { value: index++, label: 'Red Potatoes' },
+            { value: index++, label: 'Rhubarb' },
+            { value: index++, label: 'Tomatoes' }
         ];
 
         return (
@@ -97,3 +96,7 @@ class SampleApp extends Component {
 * `optionTextStyle - object` optional, style definitions for the option text element
 * `cancelStyle - object` optional, style definitions for the cancel element
 * `cancelTextStyle - object` optional, style definitions for the cancel text element
+
+##Credits 
+
+Forked from https://github.com/d-a-n/react-native-modal-picker
