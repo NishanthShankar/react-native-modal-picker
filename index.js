@@ -16,19 +16,20 @@ import BaseComponent from './BaseComponent'
 
 let componentIndex = 0
 
+// style: View.propTypes.style,
+//   selectStyle: View.propTypes.style,
+//   optionStyle: View.propTypes.style,
+//   optionTextStyle: Text.propTypes.style,
+//   sectionStyle: View.propTypes.style,
+//   sectionTextStyle: Text.propTypes.style,
+//   cancelStyle: View.propTypes.style,
+//   cancelTextStyle: Text.propTypes.style,
+//   overlayStyle: View.propTypes.style,
+
 const propTypes = {
   data: PropTypes.array,
   onChange: PropTypes.func,
   initValue: PropTypes.string,
-  style: View.propTypes.style,
-  selectStyle: View.propTypes.style,
-  optionStyle: View.propTypes.style,
-  optionTextStyle: Text.propTypes.style,
-  sectionStyle: View.propTypes.style,
-  sectionTextStyle: Text.propTypes.style,
-  cancelStyle: View.propTypes.style,
-  cancelTextStyle: Text.propTypes.style,
-  overlayStyle: View.propTypes.style,
   cancelText: PropTypes.string
 }
 
