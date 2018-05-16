@@ -30,6 +30,7 @@ const propTypes = {
   data: PropTypes.array,
   onChange: PropTypes.func,
   initValue: PropTypes.string,
+  initSelectedValue: PropTypes.string,
   cancelText: PropTypes.string
 }
 
@@ -68,6 +69,7 @@ export default class ModalPicker extends BaseComponent {
 
   componentDidMount () {
     this.setState({selected: this.props.initValue})
+    this.setState({selectedValue: this.props.initSelectedValue})
     this.setState({cancelText: this.props.cancelText})
   }
 
@@ -75,10 +77,14 @@ export default class ModalPicker extends BaseComponent {
     if (nextProps.initValue !== this.props.initValue) {
       this.setState({selected: nextProps.initValue})
     }
+    if (nextProps.initSelectedValue !== this.props.initSelectedValue) {
+      this.setState({selectedValue: nextProps.initSelectedValue})
+    }
   }
 
   onChange (item) {
     this.props.onChange(item)
+    this.setState({selectedValue: ''})
     this.setState({selected: item.label})
     this.close()
   }
@@ -152,10 +158,19 @@ export default class ModalPicker extends BaseComponent {
     if (this.props.children) {
       return this.props.children
     }
+
+    let selectedText = this.state.selected
+    if (this.state.selectedValue) {
+      let tempArray = this.props.data.filter(item =>
+        item.value.toLowerCase() === this.state.selectedValue.toLowerCase()
+      )
+      if (tempArray.length) selectedText = tempArray[0].label
+    }
+
     return (
       <View style={[styles.selectStyle, this.props.selectStyle]}>
         <Text style={[styles.selectTextStyle, this.props.selectTextStyle]}>
-          {this.state.selected}
+          {selectedText}
         </Text>
       </View>
     )
