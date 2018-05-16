@@ -162,7 +162,7 @@ export default class ModalPicker extends BaseComponent {
     let selectedText = this.state.selected
     if (this.state.selectedValue) {
       let tempArray = this.props.data.filter(item =>
-        item.value.toLowerCase() === this.state.selectedValue.toLowerCase()
+        item.value === this.state.selectedValue
       )
       if (tempArray.length) selectedText = tempArray[0].label
     }
