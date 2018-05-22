@@ -30,7 +30,7 @@ const propTypes = {
   data: PropTypes.array,
   onChange: PropTypes.func,
   initValue: PropTypes.string,
-  initSelectedValue: PropTypes.string,
+  initSelectedValue: PropTypes.any,
   cancelText: PropTypes.string
 }
 
@@ -83,6 +83,7 @@ export default class ModalPicker extends BaseComponent {
   }
 
   onChange (item) {
+    if (item.disabled) return
     this.props.onChange(item)
     this.setState({selectedValue: ''})
     this.setState({selected: item.label})
@@ -116,10 +117,19 @@ export default class ModalPicker extends BaseComponent {
   }
 
   renderOption (option) {
+    const opacity = option.disabled ? 0.5 : 1
+    const activeOpacity = option.disabled ? 1 : 0.5
     return (
-      <TouchableOpacity key={option.value} onPress={() => this.onChange(option)}>
+      <TouchableOpacity
+        activeOpacity={activeOpacity}
+        key={option.value}
+        onPress={() => this.onChange(option)}>
         <View style={[styles.optionStyle, this.props.optionStyle]}>
-          <Text style={[styles.optionTextStyle, this.props.optionTextStyle]}>
+          <Text style={[
+            styles.optionTextStyle,
+            this.props.optionTextStyle,
+            {opacity}
+          ]}>
             {option.label}
           </Text>
         </View>
@@ -160,7 +170,7 @@ export default class ModalPicker extends BaseComponent {
     }
 
     let selectedText = this.state.selected
-    if (this.state.selectedValue) {
+    if (typeof this.state.selectedValue !== 'undefined') {
       let tempArray = this.props.data.filter(item =>
         item.value === this.state.selectedValue
       )
